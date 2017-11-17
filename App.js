@@ -2,22 +2,19 @@
 import React from 'react-native';
 
 // import React = require('react-native');
-import { View, Text, TextInput } from 'react-native';
+import { View, TextInput } from 'react-native';
 import TaskList from './TaskList';
 
 let {
   AppRegistry, Component
 } = React;
 
-
-
-
 // import { Platform, StatusBar, StyleSheet, View, Text, TextInput } from 'react-native';
 // import { AppLoading, Asset, Font } from 'expo';
 // import { Ionicons } from '@expo/vector-icons';
 // import RootNavigation from './navigation/RootNavigation';
 
-export default class PluralTodo extends React.Component {
+class PluralTodo extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -39,7 +36,11 @@ export default class PluralTodo extends React.Component {
 
   render(){
       return (
-        <TaskList todos={this.state.todos} />
+          <TaskList
+            todos={this.state.todos}
+          />
         );
   }
 }
+
+AppRegistry.registerComponent('main', () => PluralTodo)

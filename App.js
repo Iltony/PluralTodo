@@ -1,20 +1,8 @@
-// import React from 'react';
-import React from 'react-native';
-
-// import React = require('react-native');
-import { View, TextInput } from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import TaskList from './TaskList';
 
-let {
-  AppRegistry, Component
-} = React;
-
-// import { Platform, StatusBar, StyleSheet, View, Text, TextInput } from 'react-native';
-// import { AppLoading, Asset, Font } from 'expo';
-// import { Ionicons } from '@expo/vector-icons';
-// import RootNavigation from './navigation/RootNavigation';
-
-class PluralTodo extends React.Component {
+export default class App extends React.Component {
 
   constructor(props, context) {
     super(props, context);
@@ -34,13 +22,10 @@ class PluralTodo extends React.Component {
     };
   }
 
-  render(){
-      return (
-          <TaskList
-            todos={this.state.todos}
-          />
-        );
+  render() {
+    return (
+      <TaskList todos={this.state.todos} />
+      
+    );
   }
 }
-
-AppRegistry.registerComponent('main', () => PluralTodo)

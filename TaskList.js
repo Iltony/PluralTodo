@@ -9,11 +9,21 @@ const styles = Native.StyleSheet.create({
         backgroundColor: '#f7f7f7',
         paddingTop: 40,
         flex: 1,
-        // justifyContent: 'flex-start',
-    },
-    contentContainerStyle: {
-        // flex: 1, 
         justifyContent: 'flex-start',
+    },
+    button: {
+        height: 60,
+        borderColor: '#05A5D1',
+        borderWidth: 2,
+        backgroundColor: '#333',
+        margin: 20,
+        justifyContent: 'center',
+        alignItems: 'center'
+    },
+    buttonText: {
+        color: '#fff',
+        fontSize: 20,
+        fontWeight: '600',
     },
 });
 
@@ -37,23 +47,27 @@ class TaskList extends React.Component {
 
     render() {
         return (
-            // <View style={styles.container}><>
-            <ListView
-                style={styles.container}
-                contentContainerStyle={styles.contentContainerStyle}
-                dataSource={this.state.dataSource}
-                key={this.props.todos}
-                renderRow={this.renderRow.bind(this)}
-            />
-            // <TouchableHighlight>
-            //     <Text>Add one</Text>
-            // </TouchableHighlight>
+            <View style={styles.container}>
+                <ListView
+                    dataSource={this.state.dataSource}
+                    key={this.props.todos}
+                    renderRow={this.renderRow.bind(this)}
+                />
+
+                <TouchableHighlight 
+                    onPress={this.props.onAddStarted}
+                    style={styles.button}
+                    >
+                    <Text style={styles.buttonText}>Add one</Text>
+                </TouchableHighlight>
+            </View>
         );
     }
 };
 
 
 TaskList.propTypes = {
+    onAddStarted: PropTypes.func.isRequired, 
     todos: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 

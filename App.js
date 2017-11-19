@@ -22,10 +22,16 @@ export default class App extends React.Component {
     };
   }
 
+  onAddStarted() {
+    console.log('on add started');
+  }
+
   render() {
     return (
-      <TaskList todos={this.state.todos} />
-      
+      <TaskList 
+        onAddStarted={this.onAddStarted.bind(this)}
+        todos={this.state.todos} 
+      />
     );
   }
 }

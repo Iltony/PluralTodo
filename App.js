@@ -6,12 +6,12 @@ import TaskForm from './TaskForm'
 
 import MainForm from './screens/MainFormScreen'
 
-const RootStackNavigator = StackNavigator(
+export default RootStackNavigator = StackNavigator(
   {
-    Home: {
+    home: {
       screen: MainForm,
     },
-    TaskForm: {
+    taskForm: {
       screen: TaskForm,
     },
   },
@@ -24,15 +24,11 @@ const RootStackNavigator = StackNavigator(
   }
 );
 
-export default class App extends React.Component {
+// class App extends React.Component {
 
-  constructor(props, context) {
-    super(props, context);
-  }
-
-  render() {
-    return (
-      <MainForm />
-    );
-  }
-}
+//   render() {
+//     return (
+//       <MainForm />
+//     );
+//   }
+// }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import TaskList from './TaskList';
+import TaskList from '../TaskList';
 import {
     StackNavigator,
   } from 'react-navigation';
@@ -14,7 +14,6 @@ export default class MainFormScreen extends React.Component {
   
   constructor(props, context) {
     super(props, context);
-    console.log('ctor MainForm')
     this.state = {
       todos: [
         {
@@ -31,8 +30,7 @@ export default class MainFormScreen extends React.Component {
   }
 
   onAddStarted() {
-    console.log('on add started');
-    this.props.navigation.navigate('TaskForm');
+    this.props.navigation.navigate('taskForm');
   }
 
   render() {

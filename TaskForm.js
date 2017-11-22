@@ -1,39 +1,41 @@
 
 import React, { Component } from 'react';
 import Native, { View, ListView, StyleSheet, TouchableHighlight, Text, TextInput } from 'react-native';
-
 //import PropTypes from 'prop-types';
 
 const styles = Native.StyleSheet.create({
     container: {
-        // backgroundColor: '#f7f7f7',
-        // paddingTop: 40,
-        // flex: 1,
-        // justifyContent: 'flex-start',
+        flex: 1,
+        justifyContent: 'flex-start',
+        paddingTop: 150,
+        backgroundColor: '#f7f7f7',
     },
     button: {
-        // height: 60,
-        // borderColor: '#05A5D1',
-        // borderWidth: 2,
-        // backgroundColor: '#333',
-        // margin: 20,
-        // justifyContent: 'center',
-        // alignItems: 'center'
+        height: 45, 
+        alignSelf: 'stretch',
+        backgroundColor: '#05A5D1',
+        marginTop:10,
+        marginLeft:10,
+        marginRight:10,
+        alignItems: 'center',
+        justifyContent: 'center',
     },
     buttonCancel: {
-        // color: '#fff',
-        // fontSize: 20,
-        // fontWeight: '600',
+        backgroundColor: '#666',
     },
     buttonText: {
-        // color: '#fff',
-        // fontSize: 20,
-        // fontWeight: '600',
+        fontSize: 18,
+        fontWeight: '600',
+        color: '#FAFAFA'
     },
     input: {
-        // color: '#fff',
-        // fontSize: 20,
-        // fontWeight: '600',
+        borderWidth: 1,
+        borderColor: '#D7D7D7',
+        height: 50,
+        marginLeft:10,
+        marginRight:10,
+        padding: 15,
+        borderRadius: 3,
     },
 });
 

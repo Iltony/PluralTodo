@@ -23,12 +23,3 @@ export default RootStackNavigator = StackNavigator(
     }),
   }
 );
-
-// class App extends React.Component {
-
-//   render() {
-//     return (
-//       <MainForm />
-//     );
-//   }
-// }

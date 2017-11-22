@@ -67,7 +67,7 @@ class TaskList extends React.Component {
 
 
 TaskList.propTypes = {
-    onAddStarted: PropTypes.func.isRequired, 
+    onAddStarted: PropTypes.func.isRequired,    
     todos: PropTypes.arrayOf(PropTypes.object).isRequired,
 }
 

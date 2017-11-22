@@ -1,7 +1,45 @@
 
 import React, { Component } from 'react';
 import Native, { View, ListView, StyleSheet, TouchableHighlight, Text, TextInput } from 'react-native';
-//import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
+
+class TaskForm extends React.Component {
+    
+    static navigationOptions = {
+        title: 'Task form page',
+    };
+
+    constructor(props, context) {
+        super(props, context);
+    }
+
+    render() {
+        return (
+            <View style={styles.container}>
+                <TextInput style={styles.input}></TextInput>
+                
+                <TouchableHighlight 
+                    onPress={this.props.onAddTask}
+                    style={styles.button}
+                    >
+                    <Text style={styles.buttonText}>Add</Text>
+                </TouchableHighlight>
+
+                <TouchableHighlight 
+                    onPress={this.props.onCancelTask}
+                    style={[styles.button,  styles.buttonCancel]}
+                    >
+                    <Text style={styles.buttonText}>Cancel</Text>
+                </TouchableHighlight>
+            </View>
+        );
+    }
+};
+
+TaskForm.propTypes = {
+    onAddTask: PropTypes.func.isRequired,
+    onCancel: PropTypes.func.isRequired
+};
 
 const styles = Native.StyleSheet.create({
     container: {
@@ -38,38 +76,5 @@ const styles = Native.StyleSheet.create({
         borderRadius: 3,
     },
 });
-
-class TaskForm extends React.Component {
-    
-    static navigationOptions = {
-        title: 'Task form page',
-    };
-
-    constructor(props, context) {
-        super(props, context);
-    }
-
-    render() {
-        return (
-            <View style={styles.container}>
-                <TextInput style={styles.input}></TextInput>
-                
-                <TouchableHighlight 
-                    onPress={this.props.onAddStarted}
-                    style={styles.button}
-                    >
-                    <Text style={styles.buttonText}>Add</Text>
-                </TouchableHighlight>
-
-                <TouchableHighlight 
-                    onPress={this.props.onAddStarted}
-                    style={[styles.button,  styles.buttonCancel]}
-                    >
-                    <Text style={styles.buttonText}>Cancel</Text>
-                </TouchableHighlight>
-            </View>
-        );
-    }
-};
 
 export default TaskForm;

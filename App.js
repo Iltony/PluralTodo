@@ -13,6 +13,7 @@ export default RootStackNavigator = StackNavigator(
     },
     taskForm: {
       screen: TaskForm,
+      
     },
   },
   {

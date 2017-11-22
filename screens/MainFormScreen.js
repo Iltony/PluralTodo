@@ -28,15 +28,31 @@ export default class MainFormScreen extends React.Component {
       ]
     };
   }
+  
+  onAddStarted(props) {
+    this.props.navigation.navigate('taskForm', 
+      {
+        onAddTask: this.onAddTask.bind(this),  
+        onCancelTask: this.onCancelTask.bind(this)        
+    });
+  }
 
-  onAddStarted() {
-    this.props.navigation.navigate('taskForm');
+  onAddTask() {
+    console.log('Add Task')
+        //this.props.navigation.pop();
+  }
+
+  onCancelTask() {
+    //console.log('Cancel Task')
+    this.props.navigation.pop()
   }
 
   render() {
     return (
       <TaskList 
         onAddStarted={this.onAddStarted.bind(this)}
+        onAddTask={this.onAddTask.bind(this)}
+        onCancelTask={this.onCancelTask.bind(this)}
         todos={this.state.todos} 
       />
     );

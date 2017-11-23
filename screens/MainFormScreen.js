@@ -30,7 +30,11 @@ export default class MainFormScreen extends React.Component {
   }
 
   onAddStarted() {
-    this.props.navigation.navigate('taskForm', {navigation: this.props.navigation});
+    this.props.navigation.navigate(
+      'taskForm',
+      {
+        navigation: this.props.navigation
+      });
   }
 
   render() {

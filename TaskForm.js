@@ -7,33 +7,49 @@ class TaskForm extends React.Component {
     static navigationOptions = {
         title: 'Task Page',
     };
-
+    
     constructor(props, context) {
         super(props, context);
     }
+    
+    task='';
+    // onAddTask = () => {
+    //     this.props.navigation.goBack()
+    // }
 
-    onAddTask = () => {
-        this.props.navigation.goBack()
+    // onCancelTask = () => {
+    //     this.props.navigation.goBack()
+    // }
+
+    onChange(text){
+        this.task = text;
     }
 
-    onCancelTask = () => {
-        this.props.navigation.goBack()
+    onAddPressed(){
+        this.props.navigation.state.params.onAddTask(this.task);
     }
 
     render() {
         return (
             <View style={styles.container}>
-                <TextInput style={styles.input}></TextInput>
+                <TextInput 
+                    style={styles.input}
+                    onChangeText={this.onChange.bind(this)}
+                ></TextInput>
                 
-                <TouchableHighlight 
-                    onPress={this.onAddTask.bind(this)}                    
+                <TouchableHighlight
+                   // onPress={this.props.onAddTask.bind(this)}                     
+                    //onPress={this.onAddTask.bind(this)}                    
+                    onPress={this.onAddPressed.bind(this)}                    
                     style={styles.button}
                     >
                     <Text style={styles.buttonText}>Add</Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight 
-                    onPress={this.onCancelTask.bind(this)}
+                    onPress={this.props.navigation.state.params.onCancelTask.bind(this)}                            
+                    //onPress={this.props.onCancelTask.bind(this)}            
+                    ////onPress={this.onCancelTask.bind(this)}
                     style={[styles.button,  styles.buttonCancel]}
                     >
                     <Text style={styles.buttonText}>Cancel</Text>

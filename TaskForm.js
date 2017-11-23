@@ -13,13 +13,6 @@ class TaskForm extends React.Component {
     }
     
     task='';
-    // onAddTask = () => {
-    //     this.props.navigation.goBack()
-    // }
-
-    // onCancelTask = () => {
-    //     this.props.navigation.goBack()
-    // }
 
     onChange(text){
         this.task = text;
@@ -33,13 +26,13 @@ class TaskForm extends React.Component {
         return (
             <View style={styles.container}>
                 <TextInput 
+                    autoFocus={true}
+                    placeholder="Insert the new task!"
                     style={styles.input}
                     onChangeText={this.onChange.bind(this)}
                 ></TextInput>
                 
                 <TouchableHighlight
-                   // onPress={this.props.onAddTask.bind(this)}                     
-                    //onPress={this.onAddTask.bind(this)}                    
                     onPress={this.onAddPressed.bind(this)}                    
                     style={styles.button}
                     >
@@ -48,8 +41,6 @@ class TaskForm extends React.Component {
 
                 <TouchableHighlight 
                     onPress={this.props.navigation.state.params.onCancelTask.bind(this)}                            
-                    //onPress={this.props.onCancelTask.bind(this)}            
-                    ////onPress={this.onCancelTask.bind(this)}
                     style={[styles.button,  styles.buttonCancel]}
                     >
                     <Text style={styles.buttonText}>Cancel</Text>

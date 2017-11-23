@@ -15,36 +15,31 @@ export default class MainFormScreen extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      todos: [
-        {
-          task: 'Learn React Native'
-        },
-        {
-          task: 'Learn Redux'
-        },
-        {
-          task: 'Learn Angular4'
-        }
-      ]
+      todos: []
     };
   }
 
   onAddTask = function(task) {
     this.state.todos.push({task});
     this.setState({todos: this.state.todos})
-    //this.props.navigation.navigate('home')
+    this.props.navigation.goBack(null)
   }
 
   onCancelTask = function() {
-    this.props.navigation.navigate('home')
+    this.props.navigation.goBack(null) 
   }
 
   onAddStarted() {
     this.props.navigation.navigate('taskForm', {
       onAddTask: (task)=> {this.onAddTask(task)},
-      onCancelTask: ()=> {this.onCancelTask()},      
+      onCancelTask: ()=> {this.onCancelTask()}, 
+      // onGoBack: () => this.refresh(),     
     });
   }
+
+  // refresh(){
+  //   this.setState(this.state);
+  // }
  
   render() {
     return (

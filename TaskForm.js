@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import Native, { View, ListView, StyleSheet, TouchableHighlight, Text, TextInput } from 'react-native';
 import PropTypes from 'prop-types';
@@ -6,11 +5,21 @@ import PropTypes from 'prop-types';
 class TaskForm extends React.Component {
     
     static navigationOptions = {
-        title: 'Task form page',
+        title: 'Task Page',
     };
 
     constructor(props, context) {
         super(props, context);
+    }
+
+    onAddTask(props) {
+        console.log('Add Task')
+        props.navigation.goBack()
+    }
+
+    onCancelTask(props) {
+        console.log('Cancel Task')
+        props.navigation.goBack()
     }
 
     render() {
@@ -19,14 +28,14 @@ class TaskForm extends React.Component {
                 <TextInput style={styles.input}></TextInput>
                 
                 <TouchableHighlight 
-                    onPress={this.props.onAddTask}
+                    onPress={this.onAddTask.bind(this, this.props)}
                     style={styles.button}
                     >
                     <Text style={styles.buttonText}>Add</Text>
                 </TouchableHighlight>
 
                 <TouchableHighlight 
-                    onPress={this.props.onCancelTask}
+                    onPress={this.onCancelTask.bind(this, this.props)}
                     style={[styles.button,  styles.buttonCancel]}
                     >
                     <Text style={styles.buttonText}>Cancel</Text>
@@ -34,11 +43,6 @@ class TaskForm extends React.Component {
             </View>
         );
     }
-};
-
-TaskForm.propTypes = {
-    onAddTask: PropTypes.func.isRequired,
-    onCancel: PropTypes.func.isRequired
 };
 
 const styles = Native.StyleSheet.create({

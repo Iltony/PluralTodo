@@ -2,16 +2,16 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import TaskList from '../TaskList';
 import {
-    StackNavigator,
-  } from 'react-navigation';
-  
+  StackNavigator,
+} from 'react-navigation';
+
 
 export default class MainFormScreen extends React.Component {
 
   static navigationOptions = {
-    title: 'Main form page',
+    title: 'Main Page',
   };
-  
+
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -28,32 +28,16 @@ export default class MainFormScreen extends React.Component {
       ]
     };
   }
-  
-  onAddStarted(props) {
-    this.props.navigation.navigate('taskForm', 
-      {
-        onAddTask: this.onAddTask.bind(this),  
-        onCancelTask: this.onCancelTask.bind(this)        
-    });
-  }
 
-  onAddTask() {
-    console.log('Add Task')
-        //this.props.navigation.pop();
-  }
-
-  onCancelTask() {
-    //console.log('Cancel Task')
-    this.props.navigation.pop()
+  onAddStarted() {
+    this.props.navigation.navigate('taskForm', {navigation: this.props.navigation});
   }
 
   render() {
     return (
-      <TaskList 
+      <TaskList
         onAddStarted={this.onAddStarted.bind(this)}
-        onAddTask={this.onAddTask.bind(this)}
-        onCancelTask={this.onCancelTask.bind(this)}
-        todos={this.state.todos} 
+        todos={this.state.todos}
       />
     );
   }

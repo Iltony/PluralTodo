@@ -37,6 +37,16 @@ export default class MainFormScreen extends React.Component {
     });
   }
 
+  onDone(todo) {
+    console.log('todo was completed: ', todo.task)
+    const filteredTodos = 
+      this.state.todos.filter((filterTodo)=>{
+        return filterTodo !== todo;
+      });
+    console.log(filteredTodos)
+    this.setState({ todos: filteredTodos });
+  }
+
   // refresh(){
   //   this.setState(this.state);
   // }
@@ -45,6 +55,7 @@ export default class MainFormScreen extends React.Component {
     return (
       <TaskList
         onAddStarted={this.onAddStarted.bind(this)}
+        onDone={this.onDone.bind(this)}
         todos={this.state.todos}
       />
     );

@@ -14,7 +14,8 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-22.0.2.tar.gz",
-    "react-navigation": "^3.11.0"
+    "react-navigation": "^3.11.0",
+    "yarn": "^1.22.4"
   },
   "devDependencies": {
     "flow-bin": "^0.101.1",

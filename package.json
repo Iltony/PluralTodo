@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@expo/samples": "^3.0.2",
-    "expo": "^33.0.6",
+    "expo": "^46.0.16",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-native": "https://github.com/expo/react-native/archive/sdk-22.0.2.tar.gz",
